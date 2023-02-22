@@ -63,3 +63,4 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+/mine_browser/*.exe
