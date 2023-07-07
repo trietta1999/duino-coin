@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Duino-Coin Official PC Miner 3.4 © MIT licensed
+Duino-Coin Official PC Miner 3.5 © MIT licensed
 https://duinocoin.com
 https://github.com/revoxhere/duino-coin
 Duino-Coin Team & Community 2019-2023
@@ -140,7 +140,7 @@ class Settings:
     """
     ENCODING = "UTF8"
     SEPARATOR = ","
-    VER = 3.4
+    VER = 3.5
     DATA_DIR = "Duino-Coin PC Miner " + str(VER)
     TRANSLATIONS = ("https://raw.githubusercontent.com/"
                     + "revoxhere/"
@@ -198,7 +198,7 @@ def check_updates():
 
         if float(Settings.VER) < float(data["tag_name"]): # If is outdated
             update = input(Style.BRIGHT + get_string("new_version"))
-            if update == "Y" or update == "y":
+            if update.lower() == "y" or update == "":
                 pretty_print(get_string("updating"), "warning", "sys0")
 
                 DATA_DIR = "Duino-Coin PC Miner " + str(data["tag_name"]) # Create new version config folder
@@ -853,6 +853,8 @@ class Miner:
                     lang = "indonesian"
                 elif locale.startswith("cz"):
                     lang = "czech"
+                elif locale.startswith("fi"):
+                    lang = "finnish"
                 else:
                     lang = "english"
             else:
